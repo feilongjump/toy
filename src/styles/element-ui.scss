@@ -1,0 +1,89 @@
+.el-main {
+  background: $mainBackgroundColor;
+}
+
+.el-aside {
+  width: $sideBarWidth !important;
+}
+
+.scrollbar-wrapper {
+  overflow-x: hidden !important;
+}
+
+.el-scrollbar {
+  height: calc(100% - #{$headerHeight});
+}
+
+.el-menu {
+  border-right: none;
+}
+
+.el-menu-item.is-active {
+  color: $menuColor;
+  border-right: 3px solid $menuColor;
+}
+
+.el-submenu.is-active {
+  background-color: $menuHoverColor;
+}
+
+.el-submenu.is-active.is-opened {
+  background-color: unset;
+}
+
+.el-table {
+  &::before {
+    display: none;
+  }
+
+  td,
+  th.is-leaf {
+    border-bottom: none;
+  }
+
+  table {
+    thead {
+
+      th {
+        padding-bottom: 0;
+      }
+
+      tr,
+      th {
+        background-color: $mainBackgroundColor;
+      }
+    }
+  }
+
+  .el-table__body-wrapper {
+    .el-table__body {
+      border-collapse: separate;
+      border-spacing: 0 1rem;
+      background-color: $mainBackgroundColor;
+
+      tbody .el-table__row {
+        cursor: pointer;
+        transition: all .25s ease-out;
+
+        &:hover {
+          box-shadow: 0 5px 10px 0 rgba(168, 182, 191, .6);
+          transform: translateY(-1px);
+        }
+
+        td {
+
+          &:first-child {
+
+            border-top-left-radius: 0.45rem;
+            border-bottom-left-radius: 0.45rem;
+          }
+
+          &:last-child {
+            border-top-right-radius: 0.45rem;
+            border-bottom-right-radius: 0.45rem;
+          }
+        }
+      }
+    }
+  }
+}

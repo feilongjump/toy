@@ -33,7 +33,7 @@
     </el-form>
     <el-divider></el-divider>
     <p class="text-center">
-      <span class="text-center text-sm text-gray-300">暂未开放注册</span>
+      <span class="text-center text-sm text-gray-600">暂未开放注册</span>
     </p>
   </div>
 </template>

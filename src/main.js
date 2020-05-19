@@ -6,6 +6,7 @@ import ElementUI from "element-ui";
 Vue.config.productionTip = false
 
 import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/display.css";
 import "@/styles/index.scss";
 Vue.use(ElementUI);
 
