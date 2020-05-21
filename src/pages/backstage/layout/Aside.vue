@@ -26,12 +26,12 @@ export default {
       menus: [
         {
           title: "仪表盘",
-          path: "dashboard",
+          path: "/backstage/dashboard",
           icon: "el-icon-data-line"
         },
         {
           title: "文章",
-          path: "articles",
+          path: "/backstage/articles",
           icon: "el-icon-notebook-2"
         }
       ]

@@ -1,13 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Layout from "@/layout";
-import App from "@/App.vue";
+import Layout from "$backstage/layout";
+import App from "$backstage/App.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/backstage",
     component: Layout,
     redirect: {
       name: "auth"
@@ -16,7 +16,7 @@ const routes = [
       {
         path: "dashboard",
         name: "dashboard",
-        component: () => import("@/views/dashboard/index")
+        component: () => import("$backstage/views/dashboard/index")
       },
       {
         path: "articles",
@@ -25,26 +25,26 @@ const routes = [
         children: [{
             path: "",
             name: "article",
-            component: () => import("@/views/article/index")
+            component: () => import("$backstage/views/article/index")
           },
           {
             path: 'create',
             name: 'article.create',
-            component: () => import('@/views/article/create')
+            component: () => import('$backstage/views/article/create')
           },
           {
             path: ":id(\\d+)/edit",
             name: "article.edit",
-            component: () => import("@/views/article/edit")
+            component: () => import("$backstage/views/article/edit")
           }
         ]
       }
     ]
   },
   {
-    path: "/auth",
+    path: "/backstage/auth",
     name: "auth",
-    component: () => import("@/views/auth/index")
+    component: () => import("$backstage/views/auth/index")
   }
 ];
 
