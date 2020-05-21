@@ -87,3 +87,12 @@
     }
   }
 }
+
+.index-search {
+  .el-input__inner {
+    background: $indexBackgroundColor;
+    border: none;
+    padding-left: 0;
+    color: #fff;
+  }
+}

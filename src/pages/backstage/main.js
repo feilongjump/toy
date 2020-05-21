@@ -7,7 +7,7 @@ Vue.config.productionTip = false
 
 import "element-ui/lib/theme-chalk/index.css";
 import "element-ui/lib/theme-chalk/display.css";
-import "@/styles/index.scss";
+import "@/styles/backstage.scss";
 Vue.use(ElementUI);
 
 new Vue({
