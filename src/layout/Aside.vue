@@ -28,6 +28,11 @@ export default {
           title: "仪表盘",
           path: "dashboard",
           icon: "el-icon-data-line"
+        },
+        {
+          title: "文章",
+          path: "articles",
+          icon: "el-icon-notebook-2"
         }
       ]
     }
