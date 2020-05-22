@@ -1,5 +1,5 @@
 <template>
-  <el-row class="h-screen text-white">
+  <el-row class="h-screen text-white py-4 px-4">
     <el-col :md="12" :lg="14">
       <i class="el-icon-more-outline text-2xl mt-4 mb-8"></i>
       <div class="px-8">
