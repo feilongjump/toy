@@ -7,6 +7,10 @@ const routes = [
   {
     path: "/",
     component: () => import('$index/views/index/home'),
+  },
+  {
+    path: '/search',
+    component: () => import('$index/views/search/index')
   }
 ];
 
