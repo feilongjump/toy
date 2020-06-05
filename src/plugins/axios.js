@@ -38,7 +38,7 @@ serve.interceptors.response.use(
       case 401:
         Message.error(error.response.data.message)
         if (window.location.pathname !== '/backstage/auth') {
-          //window.location.href = '/backstage/auth'
+          window.location.href = '/backstage/auth'
         }
         break;
       case 422: {
