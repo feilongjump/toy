@@ -151,3 +151,8 @@
 .text-indent-4 { text-indent: 1rem; }
 
 .display-none { display: none; }
+
+.overflow-y-scroll { overflow-y: scroll };
+.overflow-y-auto { overflow-y: auto };
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
