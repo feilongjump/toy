@@ -9,10 +9,10 @@
       hide-required-asterisk
       class="auth-form"
     >
-      <el-form-item label="邮箱" prop="email" class="font-blod tracking-widest">
+      <el-form-item label="用户名 | 邮箱" prop="username" class="font-blod tracking-widest">
         <el-input
-          v-model="form.email"
-          placeholder="example@gmail.com"
+          v-model="form.username"
+          placeholder="example | example@gmail.com"
         ></el-input>
       </el-form-item>
       <el-form-item
@@ -20,7 +20,7 @@
         prop="password"
         class="font-blod tracking-widest"
       >
-        <el-input v-model="form.password" placeholder="******"></el-input>
+        <el-input v-model="form.password" placeholder="******" show-password></el-input>
       </el-form-item>
       <el-form-item>
         <el-row type="flex" justify="between" align="middle" class="mb-2">
@@ -39,18 +39,20 @@
 </template>
 
 <script>
+import localforage from "localforage";
+import { login, me } from "@/api/auth";
+
 export default {
   data() {
     return {
       form: {
-        email: "example@gamil.com",
-        password: "123456",
+        username: "",
+        password: "",
         remember: false
       },
       rules: {
-        email: [
-          { required: true, message: "请输入邮箱", trigger: "blur" },
-          { type: "email", message: "邮箱格式错误", trigger: "blur" }
+        username: [
+          { required: true, message: "请输入用户名或者邮箱", trigger: "blur" },
         ],
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
@@ -79,6 +81,15 @@ export default {
      * 登录
      */
     async login() {
+      await login(this.form).then(({access_token}) => {
+        localforage.setItem("token", access_token);
+      });
+
+      await me().then(user => {
+        localforage.setItem("user", user);
+      });
+
+
       this.$message.success("登录成功~");
       this.$router.push({ name: "dashboard" });
     }
