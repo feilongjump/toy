@@ -3,13 +3,15 @@
     <h1>文章</h1>
     <el-row class="mb-4">
       <el-col>
-        <el-input
+        <el-autocomplete
           class="max-w-4xs mr-2"
           size="small"
-          v-model="keywords"
+          v-model="listQuery.keywords"
           prefix-icon="el-icon-search"
           placeholder="你想找点啥？"
-        ></el-input>
+          :fetch-suggestions="getInterfaceList"
+          popper-class="display-none"
+        ></el-autocomplete>
         <el-button
           size="small"
           type="primary"
@@ -25,18 +27,13 @@
         style="width: 100%"
       >
         <el-table-column
-          prop="date"
-          label="日期"
+          prop="title"
+          label="标题"
         >
         </el-table-column>
         <el-table-column
-          prop="name"
-          label="姓名"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="address"
-          label="地址"
+          prop="created_at"
+          label="创建时间"
         >
         </el-table-column>
         <el-table-column
@@ -69,16 +66,37 @@
         </el-table-column>
       </el-table>
     </el-row>
+    <div class="float-right">
+      <el-pagination
+        background
+        layout="prev, pager, next, jumper, sizes, total"
+        :total="meta.total"
+        :page-sizes="pageSizes"
+        :page-size="meta.per_page"
+        @current-change="getList"
+        @prev-click="getList"
+        @next-click="getList"
+        @size-change="handleSizeChange"
+      >
+      </el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
+import { index, destroy } from '@/api/article.js'
 
 export default {
   data () {
     return {
-      keywords: '',
-      list: []
+      listQuery: {
+        keywords: '',
+        page: 1,
+        limit: 20
+      },
+      pageSizes: [20, 50, 100],
+      list: [],
+      meta: {}
     }
   },
   created () {
@@ -96,22 +114,45 @@ export default {
       }
     },
     /**
+     * 更改每页显示数量
+     */
+    handleSizeChange (limit = 20) {
+      this.listQuery.limit = limit
+
+      this.getList()
+    },
+    /**
+     * 搜索
+     */
+    getInterfaceList (keywords, cb) {
+      this.meta.keywords = keywords
+
+      cb([keywords]);
+
+      this.getList()
+    },
+    /**
      * 获取列表数据
      */
-    getList () {
-      this.list = [
-        {
-          name: '测试',
-          address: '广州市',
-          date: '2020-05-21'
-        }
-      ]
+    getList (page = 1) {
+      this.listQuery.page = page
+
+      index(this.listQuery).then(response => {
+        this.list = response.data
+        response.meta.per_page = parseInt(response.meta.per_page)
+        this.meta = response.meta
+      })
     },
-    handleDelete () {
-      this.$message.success({
-          message: '删除成功',
-          showClose: true
-        })
+    /**
+     * 删除数据
+     */
+    handleDelete (id) {
+      destroy(id).then(() => {
+        this.$message.success({
+            message: '删除成功',
+            showClose: true
+          })
+      })
     }
   }
 }
