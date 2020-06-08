@@ -41,6 +41,7 @@
 <script>
 import localforage from "localforage";
 import { login, me } from "@/api/auth";
+import { setHeaderToken } from '@/plugins/axios'
 
 export default {
   data() {
@@ -83,6 +84,8 @@ export default {
     async login() {
       await login(this.form).then(({access_token}) => {
         localforage.setItem("token", access_token);
+
+        setHeaderToken(access_token)
       });
 
       await me().then(user => {
