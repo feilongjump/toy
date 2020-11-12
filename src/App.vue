@@ -1,7 +1,10 @@
 <template>
-  <div class="w-full h-screen bg-main-pattern p-8 font-mono">
+  <div class="w-full h-screen bg-main-pattern p-8 font-mono flex justify-start">
     <Sidebar />
-    <router-view />
+
+    <main class="ml-8 py-4">
+      <router-view />
+    </main>
   </div>
 </template>
 
