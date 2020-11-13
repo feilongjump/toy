@@ -3,19 +3,7 @@
     <div class="h-16 w-full px-6 py-4 text-xl text-pink-500 font-semibold">
       Hello Blog
     </div>
-    <div class="w-full px-6 py-2 flex-grow">
-      <ul>
-        <li
-          v-for="(menu, index) in menus"
-          :key="index"
-          class="px-4 py-2 mb-4 bg-gray-300 rounded-lg text-blue-400 font-semibold"
-        >
-          <router-link class="w-full h-full block" :to="menu.path">
-            {{ menu.title }}
-          </router-link>
-        </li>
-      </ul>
-    </div>
+    <Menu></Menu>
     <div class="h-24 w-full px-6 py-4 border-t border-gray-300">
       <div class="w-full h-full flex items-center">
         <img
@@ -33,29 +21,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-interface MenuArray {
-  title: string
-  path: object
-}
+import Menu from './Menu.vue'
 
 export default defineComponent({
   name: 'Sidebar',
-  setup() {
-    const menus: Array<MenuArray> = [
-      {
-        title: 'Home',
-        path: { name: 'Home' },
-      },
-      {
-        title: 'Articles',
-        path: { name: 'Article' },
-      },
-    ]
-
-    return {
-      menus,
-    }
+  components: {
+    Menu,
   },
 })
 </script>
