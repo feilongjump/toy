@@ -2,7 +2,7 @@
   <div class="w-full h-screen bg-main-pattern p-8 font-mono flex justify-start">
     <Sidebar />
 
-    <main class="ml-8 pb-4 w-full">
+    <main class="ml-8 w-full flex flex-col">
       <Navbar />
       <router-view />
     </main>

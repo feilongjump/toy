@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-6 py-2 flex-grow">
+  <div class="w-full px-6 flex-grow">
     <ul>
       <li
         v-for="(menu, index) in menus"
