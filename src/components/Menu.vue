@@ -4,10 +4,10 @@
       <li
         v-for="(menu, index) in menus"
         :key="index"
-        class="px-4 py-2 mb-2 text-blue-400 font-semibold"
+        class="mb-2 text-blue-400 font-semibold"
         :class="[router.meta.title === menu.meta.title ? active : '']"
       >
-        <router-link class="w-full h-full block" :to="menu.path">
+        <router-link class="w-full h-full block px-4 py-2" :to="menu.path">
           {{ menu.name }}
         </router-link>
       </li>
