@@ -13,7 +13,15 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'Article',
     path: '/articles',
-    component: () => import('@/views/Article.vue'),
+    component: () => import('@/views/article/Index.vue'),
+    meta: {
+      title: 'article',
+    },
+  },
+  {
+    name: 'Article.Create',
+    path: '/articles/create',
+    component: () => import('@/views/article/Create.vue'),
     meta: {
       title: 'article',
     },
