@@ -26,6 +26,22 @@ const routes: Array<RouteRecordRaw> = [
       title: 'article',
     },
   },
+  {
+    name: 'Article.Edit',
+    path: '/articles/:id(\\d+)/edit',
+    component: () => import('@/views/article/Edit.vue'),
+    meta: {
+      title: 'article',
+    },
+  },
+  {
+    name: 'Article.Show',
+    path: '/articles/:id(\\d+)',
+    component: () => import('@/views/article/Show.vue'),
+    meta: {
+      title: 'article',
+    },
+  },
 ]
 
 const router = createRouter({
