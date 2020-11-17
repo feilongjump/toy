@@ -6,7 +6,7 @@
         class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500"
         placeholder="给它起个名字吧"
       />
-      <button class="ml-2">记录一下吧</button>
+      <Icon href="#icon-publish" :className="['ml-4']" />
     </div>
     <div id="vditor" class="vditor"></div>
   </div>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
-
+import Icon from '@/components/Icon.vue'
 import Vditor from 'vditor'
 export default defineComponent({
   name: 'ArticleCreate',
@@ -34,6 +34,9 @@ export default defineComponent({
         },
       })
     })
+  },
+  components: {
+    Icon,
   },
 })
 </script>

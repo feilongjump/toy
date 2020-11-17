@@ -7,8 +7,12 @@
         class="mb-2 text-blue-400 font-semibold"
         :class="[router.meta.title === menu.meta.title ? active : '']"
       >
-        <router-link class="w-full h-full block px-4 py-2" :to="menu.path">
-          {{ menu.name }}
+        <router-link
+          class="w-full h-full block px-4 py-2 flex items-center"
+          :to="menu.path"
+        >
+          <Icon :href="menu.icon" />
+          <span class="ml-2">{{ menu.name }}</span>
         </router-link>
       </li>
     </ul>
@@ -18,10 +22,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
+import Icon from './Icon.vue'
 
 interface MenuArray {
   name: string
   path: object
+  icon: string
   meta: object
 }
 
@@ -34,6 +40,7 @@ export default defineComponent({
       {
         name: 'Home',
         path: { name: 'Home' },
+        icon: '#icon-home',
         meta: {
           title: 'home',
         },
@@ -41,6 +48,7 @@ export default defineComponent({
       {
         name: 'Articles',
         path: { name: 'Article' },
+        icon: '#icon-article',
         meta: {
           title: 'article',
         },
@@ -52,6 +60,9 @@ export default defineComponent({
       router,
       active,
     }
+  },
+  components: {
+    Icon,
   },
 })
 </script>

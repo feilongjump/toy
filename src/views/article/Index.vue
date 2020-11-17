@@ -11,10 +11,12 @@
           class="font-semibold text-xl"
           >这是一个标题啊</router-link
         >
-        <div>
-          <span class="my-4">这里就放阅读次数、点赞数、评论吧！</span>
+        <div class="mb-4 ">
+          <span class="text-xs text-gray-500">
+            阅读次数 999
+          </span>
           <router-link :to="{ name: 'Article.Edit', params: { id: index } }">
-            修改一下
+            <Icon href="#icon-edit" width="w-4" height="h-4" />
           </router-link>
         </div>
         <p>这里放个内容</p>
@@ -25,9 +27,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Icon from '@/components/Icon.vue'
 
 export default defineComponent({
   name: 'Article',
+  components: {
+    Icon,
+  },
 })
 </script>
 

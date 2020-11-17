@@ -6,11 +6,24 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
-      backgroundImage: () => ({
+      animation: {
+        shaking: 'shaking 1s ease-in-out infinite',
+      },
+      backgroundImage: {
         'main-pattern': "url('~@/assets/background_image.jpg')",
-      }),
+      },
+      keyframes: {
+        shaking: {
+          '0%, 100%': {
+            transform: 'rotate(-30deg)',
+          },
+          '50%': {
+            transform: 'rotate(30deg)',
+          },
+        },
+      },
     },
   },
-  variants: {},
+  variants: { animation: ['responsive', 'motion-safe', 'motion-reduce'] },
   plugins: [],
 }
