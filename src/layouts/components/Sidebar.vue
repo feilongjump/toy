@@ -13,8 +13,12 @@
           src="https://cdn.learnku.com/uploads/images/201710/14/1/s5ehp11z6s.png"
         />
         <div class="w-full flex flex-col text-center">
-          <span class="text-sm text-gray-600">Account</span>
-          <span class="font-semibold text-blue-400">Pretend True</span>
+          <router-link
+            class="text-sm text-gray-600"
+            :to="{ name: 'Auth.Login' }"
+            >Account</router-link
+          >
+          <span class="font-semibold text-blue-400">Hello Guest</span>
         </div>
       </div>
     </div>

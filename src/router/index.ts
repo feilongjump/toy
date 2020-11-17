@@ -4,6 +4,11 @@ import articles from './articles'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/auth/login',
+    name: 'Auth.Login',
+    component: () => import('@/views/Login.vue'),
+  },
+  {
     path: '/',
     component: Layout,
     children: [
