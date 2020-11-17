@@ -22,7 +22,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
-import Icon from './Icon.vue'
+import Icon from '@/components/Icon.vue'
 
 interface MenuArray {
   name: string
