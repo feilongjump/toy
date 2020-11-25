@@ -6,7 +6,7 @@
         class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500"
         placeholder="给它起个名字吧"
       />
-      <Icon href="#icon-publish" :className="['ml-4']" />
+      <Icon href="#icon-publish" :className="['ml-4', 'cursor-pointer']" />
     </div>
     <div id="vditor" class="vditor"></div>
   </div>
