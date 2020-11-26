@@ -48,7 +48,13 @@ export default class Http {
    * 获取 Token
    */
   private getToken() {
-    return 'Token'
+    let token = ''
+    if (localStorage.getItem('token_type') && localStorage.getItem('token')) {
+      token =
+        localStorage.getItem('token_type') + ' ' + localStorage.getItem('token')
+    }
+
+    return token
   }
 
   /**
