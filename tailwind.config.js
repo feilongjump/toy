@@ -1,9 +1,6 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: [],
+  purge: ['./src/**/*.vue'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       animation: {
@@ -24,6 +21,9 @@ module.exports = {
       },
     },
   },
-  variants: { animation: ['responsive', 'motion-safe', 'motion-reduce'] },
+  variants: {
+    extend: {},
+    animation: ['responsive', 'motion-safe', 'motion-reduce'],
+  },
   plugins: [],
 }
