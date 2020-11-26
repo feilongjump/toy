@@ -14,6 +14,10 @@ export default class Articles extends Http {
     return this.Http.get(url)
   }
 
+  public store(params: {}): Promise<AxiosResponse> {
+    return this.Http.post(this.BASE_URL, params)
+  }
+
   public patch(
     id: number | string | string[],
     params: {},

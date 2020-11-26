@@ -5,7 +5,7 @@
         type="text"
         class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500"
         placeholder="给它起个名字吧"
-        :value="article.title"
+        v-model="article.title"
       />
       <Icon
         href="#icon-publish"
@@ -29,21 +29,23 @@ export default defineComponent({
   setup() {
     const route = useRoute()
     const id = route.params.id
+    const vditorCacheId = `article-vditor-${id}`
     const data = reactive({
       article: {
         id: 0,
         title: '',
         content: {},
       },
-      contentEditor: {},
     })
 
     onMounted(() => {
+      // 由于不知道怎么去获取 contentEditor，暂时使用缓存的方式获取内容
       const contentEditor = new Vditor('vditor', {
-        height: 360,
+        height: 580,
         theme: 'classic',
         cache: {
-          enable: false,
+          enable: true,
+          id: vditorCacheId,
         },
         toolbarConfig: {
           pin: true,
@@ -58,12 +60,19 @@ export default defineComponent({
         }
         data.article = response
       })
-
-      data.contentEditor = contentEditor
     })
 
     const edit = () => {
-      console.info('你想修改什么？')
+      const params = {
+        title: data.article.title,
+        markdown: localStorage.getItem(vditorCacheId),
+      }
+
+      new Articles().patch(id, params).then(() => {
+        localStorage.removeItem(vditorCacheId)
+
+        console.info('编辑成功了！')
+      })
     }
 
     return {
