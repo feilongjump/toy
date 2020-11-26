@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full overflow-y-scroll article-box">
+  <div class="w-full h-full overflow-y-scroll scrollbar-none">
     <div
       class="w-full flex bg-white py-2 px-8 rounded-lg mb-4 shadow-lg"
       v-for="article in articles"
@@ -57,9 +57,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style>
-.article-box::-webkit-scrollbar {
-  display: none;
-}
-</style>
