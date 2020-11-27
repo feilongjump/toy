@@ -3,6 +3,6 @@ node_js:
   - node  # 最新稳定的 node.js 版本
 branches:
   only:
-    - develop
+    - dev
 
 cache: npm # 开启缓存
