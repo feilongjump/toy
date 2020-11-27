@@ -43,7 +43,7 @@ export default defineComponent({
 
       await new Auth().me().then((response: any) => {
         localStorage.setItem('user', JSON.stringify(response))
-        router.push({ name: 'Home' })
+        router.push({ name: 'Article' })
       })
     }
 

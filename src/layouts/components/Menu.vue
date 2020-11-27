@@ -35,11 +35,6 @@ export default defineComponent({
     const router = useRoute()
     const menus: Array<MenuArray> = [
       {
-        name: 'Home',
-        path: { name: 'Home' },
-        icon: '#icon-home',
-      },
-      {
         name: 'Articles',
         path: { name: 'Article' },
         icon: '#icon-article',
