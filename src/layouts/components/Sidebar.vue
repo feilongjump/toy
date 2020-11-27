@@ -18,7 +18,7 @@
             :to="{ name: 'Auth.Login' }"
             >Account</router-link
           >
-          <span class="font-semibold text-blue-400">Hello Guest</span>
+          <span class="font-semibold text-blue-400">Hello {{ username }}</span>
         </div>
       </div>
     </div>
@@ -31,6 +31,19 @@ import Menu from './Menu.vue'
 
 export default defineComponent({
   name: 'Sidebar',
+  setup() {
+    let localUser = localStorage.getItem('user')
+
+    let username = 'Guest'
+    if (localUser) {
+      const user = JSON.parse(localUser)
+      username = user.name
+    }
+
+    return {
+      username,
+    }
+  },
   components: {
     Menu,
   },

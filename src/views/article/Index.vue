@@ -6,22 +6,20 @@
       :key="article.id"
     >
       <div class="flex flex-col">
-        <router-link
-          :to="{ name: 'Article.Show', params: { id: article.id } }"
-          class="font-semibold text-xl"
-          >{{ article.title }}</router-link
-        >
-        <div class="mb-4 ">
-          <span class="text-xs text-gray-500">
-            阅读次数 999
-          </span>
+        <span class="flex content-center">
           <router-link
+            :to="{ name: 'Article.Show', params: { id: article.id } }"
+            class="font-semibold text-xl"
+            >{{ article.title }}</router-link
+          >
+          <router-link
+            v-if="isLogin"
+            class="ml-2"
             :to="{ name: 'Article.Edit', params: { id: article.id } }"
           >
             <Icon href="#icon-edit" width="w-4" height="h-4" />
           </router-link>
-        </div>
-        <p>这里放个内容</p>
+        </span>
       </div>
     </div>
   </div>
@@ -43,6 +41,7 @@ export default defineComponent({
         },
       ],
     })
+    const isLogin = localStorage.getItem('user') ? true : false
 
     new Articles().index().then(response => {
       data.articles = response.data
@@ -50,6 +49,7 @@ export default defineComponent({
 
     return {
       ...toRefs(data),
+      isLogin,
     }
   },
   components: {
