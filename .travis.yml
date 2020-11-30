@@ -1,5 +1,5 @@
 language: node_js
 node_js:
-  - node  # 最新稳定的 node.js 版本
+  - node # 最新稳定的 node.js 版本
 
 cache: npm # 开启缓存
