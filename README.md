@@ -1,5 +1,7 @@
 # blog
 
+![Hello GitHub Actions](https://github.com/PretendTrue/blog/workflows/Hello%20GitHub%20Actions/badge.svg?branch=main)
+
 ## Project setup
 ```
 npm install
