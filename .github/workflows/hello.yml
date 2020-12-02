@@ -1,4 +1,4 @@
-name: Hello World
+name: Hello GitHub Actions
 
 on:
   push:
@@ -6,11 +6,8 @@ on:
 
 jobs:
   build:
-    name: Hello World Action
+    name: Hello GitHub Actions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install
-      - run: npm test
-      - run: echo Hello World !
+      - run: echo Hello GitHub Actions !
