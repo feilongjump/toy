@@ -23,5 +23,6 @@ jobs:
           script: |
             cd /var/www/blog
             sudo git pull origin main
+            which npm
             npm install
             npm run build
