@@ -20,5 +20,5 @@ jobs:
           script: |
             cd /var/www/blog
             sudo git pull origin main
-            sudo npm install --production
-            sudo npm run build
+            npm install --production
+            npm run build
