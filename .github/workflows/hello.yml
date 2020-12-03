@@ -2,12 +2,11 @@ name: Hello GitHub Actions
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     name: Hello GitHub Actions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - run: echo Hello GitHub Actions !
