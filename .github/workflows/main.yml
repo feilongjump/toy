@@ -11,14 +11,14 @@ jobs:
     # 执行的步骤
     steps:
       - name: Deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd /var/www/blog
-          sudo git pull origin master
-          sudo npm install --production
-          sudo npm run build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/blog
+            sudo git pull origin master
+            sudo npm install --production
+            sudo npm run build
