@@ -19,6 +19,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /var/www/blog
-            sudo git pull origin master
+            sudo git pull origin main
             sudo npm install --production
             sudo npm run build
