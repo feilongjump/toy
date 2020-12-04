@@ -20,5 +20,10 @@ jobs:
           script: |
             cd /var/www/blog
             git pull origin main
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install --lts
+            node -v
+            npm -v
             npm install
             npm run build
