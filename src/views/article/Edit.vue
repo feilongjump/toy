@@ -23,6 +23,7 @@ import Icon from '@/components/Icon.vue'
 import Vditor from 'vditor'
 import Articles from '@/api/articles'
 import { useRoute } from 'vue-router'
+import Message from '@/plugins/Message'
 
 export default defineComponent({
   name: 'ArticleCreate',
@@ -71,7 +72,7 @@ export default defineComponent({
       new Articles().patch(id, params).then(() => {
         localStorage.removeItem(vditorCacheId)
 
-        console.info('编辑成功了！')
+        Message('修改值 + 1')
       })
     }
 

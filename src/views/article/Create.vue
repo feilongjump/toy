@@ -22,6 +22,7 @@ import { defineComponent, onMounted, reactive, toRefs } from 'vue'
 import Icon from '@/components/Icon.vue'
 import Vditor from 'vditor'
 import Articles from '@/api/articles'
+import Message from '@/plugins/Message'
 
 export default defineComponent({
   name: 'ArticleCreate',
@@ -60,7 +61,7 @@ export default defineComponent({
       new Articles().store(params).then(() => {
         localStorage.removeItem(vditorCacheId)
 
-        console.info('添加成功了！')
+        Message('积累值 + 1')
       })
     }
 

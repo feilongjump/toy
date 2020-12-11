@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import Message from './Message'
 
 export default class Http {
   private config: AxiosRequestConfig = {
@@ -29,7 +30,7 @@ export default class Http {
         if (response) {
           this.responseError(response)
         } else {
-          console.error('这是什么情况？', error)
+          Message(`网络好像飞去外星球了！`)
         }
       },
     )
@@ -65,16 +66,17 @@ export default class Http {
   private responseError(response: AxiosResponse) {
     switch (response.status) {
       case 401:
+        Message('先登录一下吧。')
         console.error('还没登陆啊！让我来帮你跳转到登录页面吧！')
         break
       case 404:
         console.error('地址不存在！让我来帮你跳转到 404 页面吧！')
         break
       case 422:
-        console.error('参数错误！让我来提醒你一下！')
+        Message('参数错误了，让我来提醒你一下！')
         break
       default:
-        console.error('出现了什么问题？要提交一下错误过来吗？')
+        Message('发生了什么？过段时间再来提交错误吧')
         break
     }
   }

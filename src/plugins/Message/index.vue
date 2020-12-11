@@ -6,10 +6,7 @@
     v-show="visible"
   >
     <div class="flex flex-col">
-      <span class="font-semibold">
-        提醒
-      </span>
-      <span class="text-sm text-gray-400 mt-2 ml-4">
+      <span class="text-sm text-gray-400 ml-4">
         {{ message }}
       </span>
     </div>
@@ -65,6 +62,7 @@ export default defineComponent({
       customStyle: computed(() => {
         return {
           top: `${prop.offset}px`,
+          zIndex: 99999,
         }
       }),
     }

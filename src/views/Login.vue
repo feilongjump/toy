@@ -21,6 +21,7 @@ import { defineComponent, reactive, toRefs } from 'vue'
 import Icon from '@/components/Icon.vue'
 import Auth from '@/api/auth'
 import { useRouter } from 'vue-router'
+import Message from '@/plugins/Message'
 
 export default defineComponent({
   name: 'Login',
@@ -43,6 +44,7 @@ export default defineComponent({
 
       await new Auth().me().then((response: any) => {
         localStorage.setItem('user', JSON.stringify(response))
+        Message(`Hello ${response.name}`)
         router.push({ name: 'Article' })
       })
     }
