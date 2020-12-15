@@ -7,7 +7,7 @@
         class="mb-2 text-blue-400 font-semibold"
       >
         <router-link
-          class="w-full h-full block px-4 py-2 flex items-center"
+          class="w-full h-full px-4 py-2 flex items-center"
           :to="menu.path"
         >
           <Icon :href="menu.icon" />
