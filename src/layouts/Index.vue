@@ -2,7 +2,10 @@
   <div class="w-full h-full flex justify-start">
     <Sidebar />
 
-    <main class="ml-8 w-full flex flex-col">
+    <main
+      class="w-full flex flex-col
+        lg:ml-8"
+    >
       <Navbar />
       <router-view />
     </main>

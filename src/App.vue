@@ -1,7 +1,11 @@
 <template>
-  <div class="w-full h-screen bg-main-pattern px-12 py-8 font-mono">
+  <div
+    class="w-full h-screen bg-main-pattern px-4 pt-8 font-mono
+      lg:px-12 lg:py-8"
+  >
     <div
-      class="w-full h-full border border-white rounded-2xl p-4 shadow-2xl bg-white bg-opacity-25"
+      class="w-full h-full
+      lg:border lg:border-white lg:rounded-2xl lg:p-4 lg:shadow-2xl lg:bg-white lg:bg-opacity-25"
     >
       <router-view />
     </div>

@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full h-full flex justify-center items-center">
+  <div
+    class="w-full h-full flex flex-col justify-center items-center
+      md:flex-row"
+  >
     <input
       type="text"
       class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500"
@@ -8,7 +11,7 @@
     />
     <input
       type="password"
-      class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500 mx-4"
+      class="w-64 outline-none bg-transparent text-black pl-4 py-1 border-b-2 border-solid border-pink-500 mx-4 my-6"
       placeholder="密码是什么"
       v-model="password"
     />

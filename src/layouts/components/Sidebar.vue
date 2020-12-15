@@ -1,6 +1,7 @@
 <template>
   <div
-    class="h-full w-64 bg-white rounded-xl shadow-lg flex flex-shrink-0 flex-col"
+    class="hidden h-full w-64 bg-white rounded-xl shadow-lg
+      lg:flex lg:flex-shrink-0 lg:flex-col"
   >
     <div class="h-16 w-full px-6 py-4 text-xl text-pink-500 font-semibold">
       Hello Blog

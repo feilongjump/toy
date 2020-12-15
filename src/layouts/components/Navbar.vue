@@ -1,5 +1,8 @@
 <template>
-  <header class="h-16 w-full py-4 flex justify-end items-center">
+  <header
+    class="h-16 w-full py-4 hidden
+      lg:flex lg:justify-end lg:items-center"
+  >
     <div>
       <router-link v-if="isLogin" class="mr-4" :to="{ name: 'Article.Create' }">
         <Icon href="#icon-create" />
