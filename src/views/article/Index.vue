@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full h-full overflow-y-scroll scrollbar-none">
+  <div
+    class="w-full h-full overflow-y-scroll scrollbar-none pb-16
+      lg:pb-0"
+  >
     <div
       class="w-full flex bg-white py-2 px-8 rounded-lg mb-4 shadow-lg"
       v-for="article in articles"

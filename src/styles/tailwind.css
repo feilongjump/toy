@@ -3,3 +3,11 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .zoom-50 {
+      zoom: 50%;
+    }
+  }
+}
