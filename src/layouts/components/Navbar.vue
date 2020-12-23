@@ -60,12 +60,21 @@
       </div>
     </div>
   </nav>
+  <nav class="fixed bottom-8 right-32">
+    <div class="relative">
+      <div
+        class="w-28 h-28 border border-black rounded-xl absolute left-24 bottom-0 transform-gpu rotate-55 -skew-y-35"
+      ></div>
+      <img :src="cloud" class="w-32" />
+    </div>
+  </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Icon from '@/components/Icon.vue'
 import Message from '@/plugins/Message'
+import cloud from '@/assets/cloud.png'
 
 export default defineComponent({
   name: 'Navbar',
@@ -87,6 +96,7 @@ export default defineComponent({
       isLogin,
       reserve,
       username,
+      cloud,
     }
   },
   components: {

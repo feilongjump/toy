@@ -3,6 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      skew: {
+        '-35': '-35deg',
+      },
+      rotate: {
+        55: '55deg',
+      },
       gradientColorStops: theme => ({
         ...theme('colors'),
         'lower-left': '#fdd3bb',
