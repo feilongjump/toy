@@ -1,8 +1,10 @@
 <template>
-  <main class="w-full flex flex-col">
+  <div class="w-full min-h-screen px-4 pt-8">
     <Navbar />
-    <router-view />
-  </main>
+    <main class="w-full flex flex-col">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <script lang="ts">

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full flex flex-col justify-center items-center
+    class="w-full h-screen flex flex-col justify-center items-center
       md:flex-row"
   >
     <input
