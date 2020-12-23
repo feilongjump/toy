@@ -1,14 +1,9 @@
 <template>
   <div
-    class="w-full h-screen bg-main-pattern px-4 pt-8 font-mono
-      lg:px-12 lg:py-8"
+    class="w-full min-h-screen h-full px-4 pt-8 font-mono
+      bg-gradient-to-tr from-lower-left via-precise-middle to-top-right"
   >
-    <div
-      class="w-full h-full
-      lg:border lg:border-white lg:rounded-2xl lg:p-4 lg:shadow-2xl lg:bg-white lg:bg-opacity-25"
-    >
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 

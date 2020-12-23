@@ -3,27 +3,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      animation: {
-        shaking: 'shaking 1s ease-in-out infinite',
-      },
-      backgroundImage: {
-        'main-pattern': "url('~@/assets/background_image.jpg')",
-      },
-      keyframes: {
-        shaking: {
-          '0%, 100%': {
-            transform: 'rotate(-30deg)',
-          },
-          '50%': {
-            transform: 'rotate(30deg)',
-          },
-        },
-      },
+      gradientColorStops: theme => ({
+        ...theme('colors'),
+        'lower-left': '#fdd3bb',
+        'precise-middle': '#f1deda',
+        'top-right': '#e3c9e2',
+      }),
     },
   },
   variants: {
     extend: {},
-    animation: ['responsive', 'motion-safe', 'motion-reduce'],
   },
   plugins: [],
 }
