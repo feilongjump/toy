@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full overflow-y-scroll scrollbar-none">
+  <div class="h-full">
     <div class="mb-8">
       <h1>{{ article.title }}</h1>
     </div>

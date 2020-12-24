@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full overflow-y-scroll scrollbar-none pb-16
+    class="w-full h-full pb-16
       lg:pb-0"
   >
     <div
