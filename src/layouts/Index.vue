@@ -1,6 +1,5 @@
 <template>
   <div class="w-full min-h-screen px-4 pt-8">
-    <Navbar />
     <main class="lg:w-1/2 mx-auto flex flex-col">
       <router-view />
     </main>
@@ -9,12 +8,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Navbar from './components/Navbar.vue'
 
 export default defineComponent({
   name: 'Layout',
-  components: {
-    Navbar,
-  },
 })
 </script>
