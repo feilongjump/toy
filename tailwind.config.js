@@ -3,11 +3,21 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      skew: {
-        '-35': '-35deg',
+      colors: {
+        'box-violet': '#4c065c',
+      },
+      inset: {
+        '-30': '-7.5rem',
+        39: '9.75rem',
       },
       rotate: {
         55: '55deg',
+      },
+      skew: {
+        '-25': '-25deg',
+      },
+      spacing: {
+        26: '6.5rem',
       },
       gradientColorStops: theme => ({
         ...theme('colors'),

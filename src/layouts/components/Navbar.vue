@@ -4,23 +4,19 @@
       lg:hidden"
   >
     <div class="h-full flex justify-between items-center">
-      <div class="w-full h-full">
-        <div
-          class="h-full flex flex-col items-center justify-center"
-          @click="reserve"
-        >
-          <Icon href="#icon-reserve-1" />
-          <span class="text-gray-500 mt-2 zoom-50">预留</span>
-        </div>
-      </div>
-      <div class="w-full h-full">
-        <div
-          class="h-full flex flex-col items-center justify-center"
-          @click="reserve"
-        >
-          <Icon href="#icon-reserve-2" />
-          <span class="text-gray-500 mt-2 zoom-50">预留</span>
-        </div>
+      <router-link
+        class="w-full h-full flex flex-col items-center justify-center"
+        :to="{ name: 'Article' }"
+      >
+        <Icon href="#icon-article" />
+        <span class="text-gray-500 mt-2 zoom-50">博客</span>
+      </router-link>
+      <div
+        class="w-full h-full flex flex-col items-center justify-center"
+        @click="reserve"
+      >
+        <Icon href="#icon-reserve-2" />
+        <span class="text-gray-500 mt-2 zoom-50">预留</span>
       </div>
       <!-- user -->
       <div class="w-full h-full">
@@ -40,32 +36,54 @@
           <span class="text-gray-500 mt-2 zoom-50">登录</span>
         </router-link>
       </div>
-      <div class="w-full h-full">
-        <div
-          class="h-full flex flex-col items-center justify-center"
-          @click="reserve"
-        >
-          <Icon href="#icon-reserve-3" />
-          <span class="text-gray-500 mt-2 zoom-50">预留</span>
-        </div>
+      <div
+        class="w-full h-full flex flex-col items-center justify-center"
+        @click="reserve"
+      >
+        <Icon href="#icon-reserve-3" />
+        <span class="text-gray-500 mt-2 zoom-50">预留</span>
       </div>
-      <div class="w-full h-full">
-        <div
-          class="h-full flex flex-col items-center justify-center"
-          @click="reserve"
-        >
-          <Icon href="#icon-reserve-4" />
-          <span class="text-gray-500 mt-2 zoom-50">预留</span>
-        </div>
+      <div
+        class="w-full h-full flex flex-col items-center justify-center"
+        @click="reserve"
+      >
+        <Icon href="#icon-reserve-4" />
+        <span class="text-gray-500 mt-2 zoom-50">预留</span>
       </div>
     </div>
   </nav>
-  <nav class="fixed bottom-8 right-32">
+  <nav class="hidden lg:block fixed bottom-8 right-44">
     <div class="relative">
       <div
-        class="w-28 h-28 border border-black rounded-xl absolute left-24 bottom-0 transform-gpu rotate-55 -skew-y-35"
+        class="w-32 h-32 border-2 border-box-violet rounded-xl absolute left-39 bottom-2 transform-gpu rotate-55 -skew-y-25"
       ></div>
-      <img :src="cloud" class="w-32" />
+      <div
+        class="w-32 h-32 border-r-2 border-b-2 border-box-violet rounded-xl absolute left-39 -bottom-1 transform-gpu rotate-55 -skew-y-25"
+      ></div>
+      <img :src="cloud" class="w-44" />
+      <div class="relative">
+        <router-link
+          class="absolute -top-36 -right-14 cursor-pointer"
+          :to="{ name: 'Auth.Login' }"
+        >
+          <Icon href="#icon-user" width="w-10" height="h-10" />
+        </router-link>
+        <router-link
+          class="absolute -top-28 -right-30 cursor-pointer"
+          :to="{ name: 'Article' }"
+        >
+          <Icon href="#icon-article" width="w-10" height="h-10" />
+        </router-link>
+        <div class="absolute -top-16 -right-24 cursor-pointer" @click="reserve">
+          <Icon href="#icon-book-keeping" width="w-10" height="h-10" />
+        </div>
+        <div class="absolute bottom-6 -right-8 cursor-pointer" @click="reserve">
+          <Icon href="#icon-reserve-4" width="w-10" height="h-10" />
+        </div>
+        <div class="absolute -top-28 right-0 cursor-pointer" @click="reserve">
+          <Icon href="#icon-reserve-5" width="w-10" height="h-10" />
+        </div>
+      </div>
     </div>
   </nav>
 </template>
