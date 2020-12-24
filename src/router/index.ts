@@ -19,7 +19,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  linkExactActiveClass: 'bg-gray-300 rounded-lg',
 })
 
 export default router
