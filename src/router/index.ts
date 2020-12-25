@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layouts/Index.vue'
 import articles from './articles'
+import todo from './todo'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     component: Layout,
     redirect: '/articles',
-    children: [...articles],
+    children: [...articles, ...todo],
   },
 ]
 

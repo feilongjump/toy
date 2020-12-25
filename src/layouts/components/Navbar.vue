@@ -11,13 +11,13 @@
         <Icon href="#icon-article" />
         <span class="text-gray-500 mt-2 zoom-50">博客</span>
       </router-link>
-      <div
+      <router-link
         class="w-full h-full flex flex-col items-center justify-center"
-        @click="reserve"
+        :to="{ name: 'Todo' }"
       >
-        <Icon href="#icon-reserve-2" />
-        <span class="text-gray-500 mt-2 zoom-50">预留</span>
-      </div>
+        <Icon href="#icon-tomato" />
+        <span class="text-gray-500 mt-2 zoom-50">Todo</span>
+      </router-link>
       <!-- user -->
       <div class="w-full h-full">
         <div
@@ -74,9 +74,12 @@
         >
           <Icon href="#icon-article" width="w-10" height="h-10" />
         </router-link>
-        <div class="absolute -top-16 -right-24 cursor-pointer" @click="reserve">
-          <Icon href="#icon-book-keeping" width="w-10" height="h-10" />
-        </div>
+        <router-link
+          class="absolute -top-16 -right-24 cursor-pointer"
+          :to="{ name: 'Todo' }"
+        >
+          <Icon href="#icon-tomato" width="w-10" height="h-10" />
+        </router-link>
         <div class="absolute bottom-6 -right-8 cursor-pointer" @click="reserve">
           <Icon href="#icon-reserve-4" width="w-10" height="h-10" />
         </div>
