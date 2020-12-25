@@ -1,6 +1,6 @@
-# blog
+# Hello Toy :man_technologist:
 
-![Hello GitHub Actions](https://github.com/PretendTrue/blog/workflows/Hello%20GitHub%20Actions/badge.svg?branch=main)
+![Hello GitHub Actions](https://github.com/PretendTrue/toy/workflows/Hello%20GitHub%20Actions/badge.svg?branch=main)
 
 ## Project setup
 ```

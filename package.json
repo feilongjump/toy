@@ -1,6 +1,6 @@
 {
-  "name": "blog",
-  "version": "2.3.1",
+  "name": "toy",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
