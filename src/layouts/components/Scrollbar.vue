@@ -1,7 +1,7 @@
 <template>
   <div
     id="scrollbar"
-    class="w-5 h-16 fixed top-0 right-2 border-4 border-white rounded-2xl cursor-pointer"
+    class="w-5 h-16 hidden lg:block fixed top-0 right-2 border-4 border-white rounded-2xl cursor-pointer"
     style="z-index: 999;"
   ></div>
 </template>
