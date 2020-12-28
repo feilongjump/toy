@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full pb-16">
+  <div class="w-full h-full">
     <div class="w-full h-full">
       <input
         type="text"
@@ -14,9 +14,10 @@
       >
     </div>
     <div
-      v-for="todo in todos"
+      v-for="(todo, index) in todos"
       :key="todo.id"
-      class="w-full h-auto max-h-20 px-2 py-4 bg-white border-l-8 border-yellow-200 rounded-md mb-2 truncate"
+      class="w-full h-auto max-h-20 px-2 py-4 bg-white border-l-8 border-yellow-200 rounded-md truncate"
+      :class="index === 0 ? '' : 'mt-2'"
     >
       {{ todo.matter }}
     </div>
@@ -32,7 +33,12 @@ export default defineComponent({
   name: 'Todo',
   setup() {
     const data = reactive({
-      todos: [],
+      todos: [
+        {
+          id: 0,
+          matter: '',
+        },
+      ],
       matter: '',
     })
     const addTodo = () => {

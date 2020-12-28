@@ -1,12 +1,10 @@
 <template>
-  <div
-    class="w-full h-full pb-16
-      lg:pb-0"
-  >
+  <div class="w-full h-full">
     <div
-      class="w-full flex bg-white py-2 px-8 rounded-lg mb-4 shadow-lg"
-      v-for="article in articles"
+      class="w-full flex bg-white py-2 px-8 rounded-lg shadow-lg"
+      v-for="(article, index) in articles"
       :key="article.id"
+      :class="index === 0 ? '' : 'mt-4'"
     >
       <div class="flex flex-col">
         <span class="flex content-center">
