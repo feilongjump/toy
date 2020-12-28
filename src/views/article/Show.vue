@@ -35,6 +35,7 @@ export default defineComponent({
         data.article.title = response.title
 
         Vditor.preview(vditorDom, response.content.markdown, {
+          mode: 'light',
           anchor: 1,
         })
       })
