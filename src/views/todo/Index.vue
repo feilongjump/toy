@@ -1,17 +1,20 @@
 <template>
   <div class="w-full h-full">
-    <div class="w-full h-full">
+    <div class="w-full h-full" v-show="isLogin">
       <input
         type="text"
         class="w-64 outline-none bg-transparent text-black pl-2 py-1 border-b-2 border-solid border-pink-500 mx-4 mt-6 mb-2"
         placeholder="记录一下要做的，别忘记了"
         v-model="matter"
       />
-      <span
+      <div
         class="text-white flex items-center justify-center text-3xl mb-2"
         @click="addTodo"
-        >+</span
       >
+        <span class="cursor-pointer">
+          +
+        </span>
+      </div>
     </div>
     <div
       v-for="(todo, index) in todos"
@@ -32,6 +35,9 @@ import Message from '@/plugins/Message'
 export default defineComponent({
   name: 'Todo',
   setup() {
+    const localUser = localStorage.getItem('user')
+    const isLogin = localUser ? true : false
+
     const data = reactive({
       todos: [
         {
@@ -40,6 +46,7 @@ export default defineComponent({
         },
       ],
       matter: '',
+      isLogin,
     })
     const addTodo = () => {
       new Todo().store({ matter: data.matter }).then(() => {
