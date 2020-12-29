@@ -2,10 +2,8 @@
   <div
     class="font-mono bg-gradient-to-tr from-lower-left via-precise-middle to-top-right"
   >
-    <div class="pb-20">
-      <Navbar />
-      <router-view />
-    </div>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 

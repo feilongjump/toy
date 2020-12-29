@@ -2,7 +2,9 @@
   <div class="w-full min-h-screen px-4 pt-8">
     <Scrollbar />
     <main class="lg:w-1/2 mx-auto flex flex-col">
-      <router-view />
+      <div class="pb-20">
+        <router-view />
+      </div>
     </main>
   </div>
 </template>
