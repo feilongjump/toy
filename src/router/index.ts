@@ -15,6 +15,11 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/articles',
     children: [...articles, ...todo],
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/error/404.vue'),
+  },
 ]
 
 const router = createRouter({

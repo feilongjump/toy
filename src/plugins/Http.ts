@@ -1,3 +1,4 @@
+import router from '@/router'
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import Message from './Message'
 
@@ -67,10 +68,11 @@ export default class Http {
     switch (response.status) {
       case 401:
         Message('先登录一下吧。')
-        console.error('还没登陆啊！让我来帮你跳转到登录页面吧！')
+        router.push({ name: 'Auth.Login' })
         break
       case 404:
-        console.error('地址不存在！让我来帮你跳转到 404 页面吧！')
+        Message('没找到你想要的东西！')
+        router.push({ name: 'NotFound' })
         break
       case 422:
         Message('参数错误了，让我来提醒你一下！')
