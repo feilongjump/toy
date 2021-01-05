@@ -7,6 +7,7 @@ const todoRoute: Array<RouteRecordRaw> = [
     component: () => import('@/views/todo/Index.vue'),
     meta: {
       title: 'todo',
+      auth: true,
     },
   },
 ]

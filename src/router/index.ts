@@ -28,4 +28,12 @@ const router = createRouter({
   routes,
 })
 
+router.beforeEach(to => {
+  const isLogged = !!localStorage.getItem('user')
+
+  if (to.meta.auth && !isLogged && to.name !== 'Auth.Login') {
+    router.push({ name: 'Auth.Login' })
+  }
+})
+
 export default router
