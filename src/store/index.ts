@@ -6,16 +6,25 @@ export default createStore({
     isLogged: false,
   },
   mutations: {
-    login(state, user: string | object) {
-      if (typeof user === 'string') user = JSON.parse(user)
+    signIn(state, user: object) {
       state.user = user
       state.isLogged = true
     },
-    logout(state) {
+    singOut(state) {
       state.user = {}
       state.isLogged = false
     },
   },
-  actions: {},
+  actions: {
+    sign({ commit }, user: string | object) {
+      if (typeof user === 'string') user = JSON.parse(user)
+
+      if (Object.keys(user).length > 0) {
+        commit('signIn', user)
+      } else {
+        commit('singOut')
+      }
+    },
+  },
   modules: {},
 })
