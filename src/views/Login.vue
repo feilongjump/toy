@@ -29,10 +29,12 @@ import Icon from '@/components/Icon.vue'
 import Auth from '@/api/auth'
 import { useRouter } from 'vue-router'
 import Message from '@/plugins/Message'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'Login',
   setup() {
+    const store = useStore()
     const router = useRouter()
     const accountDom = ref<HTMLElement>()
     const passwordDom = ref<HTMLElement>()
@@ -50,6 +52,7 @@ export default defineComponent({
 
       await new Auth().me().then((response: any) => {
         localStorage.setItem('user', JSON.stringify(response))
+        store.commit('login', response)
         Message(`Hello ${response.name}`)
         router.push({ name: 'Article' })
       })
