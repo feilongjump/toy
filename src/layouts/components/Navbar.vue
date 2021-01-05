@@ -17,24 +17,6 @@
         <Icon href="#icon-tomato" />
         <span class="text-gray-500 mt-2 zoom-50">Todo</span>
       </router-link>
-      <!-- user -->
-      <div class="w-full h-full">
-        <div
-          class="h-full flex flex-col items-center justify-center"
-          v-if="isLogin"
-        >
-          <Icon href="#icon-user" />
-          <span class="text-gray-500 mt-2 zoom-50">{{ username }}</span>
-        </div>
-        <router-link
-          class="h-full flex flex-col items-center justify-center"
-          :to="{ name: 'Auth.Login' }"
-          v-else
-        >
-          <Icon href="#icon-user" />
-          <span class="text-gray-500 mt-2 zoom-50">登录</span>
-        </router-link>
-      </div>
       <div
         class="w-full h-full flex flex-col items-center justify-center"
         @click="reserve"
@@ -49,6 +31,24 @@
         <Icon href="#icon-reserve-4" />
         <span class="text-gray-500 mt-2 zoom-50">预留</span>
       </div>
+      <!-- user -->
+      <div class="w-full h-full">
+        <div
+          class="h-full flex flex-col items-center justify-center"
+          v-if="isLogged"
+        >
+          <Icon href="#icon-user" />
+          <span class="text-gray-500 mt-2 zoom-50">{{ username }}</span>
+        </div>
+        <router-link
+          class="h-full flex flex-col items-center justify-center"
+          :to="{ name: 'Auth.Login' }"
+          v-else
+        >
+          <Icon href="#icon-user" />
+          <span class="text-gray-500 mt-2 zoom-50">登录</span>
+        </router-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -60,24 +60,23 @@ import Message from '@/plugins/Message'
 
 export default defineComponent({
   name: 'Navbar',
+  props: {
+    username: {
+      default: 'Guest',
+      type: String,
+    },
+    isLogged: {
+      default: false,
+      type: Boolean,
+    },
+  },
   setup() {
-    const localUser = localStorage.getItem('user')
-    const isLogin = localUser ? true : false
-    let username = 'Guest'
-
     const reserve = () => {
       Message('留个坑位。')
     }
 
-    if (localUser) {
-      const user = JSON.parse(localUser)
-      username = user.name
-    }
-
     return {
-      isLogin,
       reserve,
-      username,
     }
   },
   components: {
