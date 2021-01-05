@@ -89,7 +89,7 @@ export default defineComponent({
       Message('留个坑位。')
     }
 
-    const actions = routeName => {
+    const actions = (routeName: string) => {
       let boolean = true
       if (router.currentRoute.value.name === routeName && prop.isLogged) {
         boolean = false
