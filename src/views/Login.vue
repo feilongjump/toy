@@ -19,7 +19,14 @@
       @keyup.enter="keyup"
       v-model="password"
     />
-    <Icon href="#icon-login" :className="['cursor-pointer']" @click="keyup" />
+    <span>
+      <Icon href="#icon-login" :className="['cursor-pointer']" @click="keyup" />
+      <Icon
+        href="#icon-return"
+        :className="['cursor-pointer', 'ml-2']"
+        @click="back"
+      />
+    </span>
   </div>
 </template>
 
@@ -85,11 +92,17 @@ export default defineComponent({
 
     localStorage.clear()
 
+    // 返回上一页
+    const back = () => {
+      router.back()
+    }
+
     return {
       ...toRefs(params),
       keyup,
       accountDom,
       passwordDom,
+      back,
     }
   },
   components: {
