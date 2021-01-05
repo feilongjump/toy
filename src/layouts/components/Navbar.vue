@@ -3,13 +3,25 @@
     class="h-12 w-80 px-2 fixed rounded-full bg-white bottom-4 inset-x-1/2 transform -translate-x-1/2"
   >
     <div class="h-full flex justify-between items-center">
-      <router-link
-        class="w-full h-full flex flex-col items-center justify-center"
-        :to="{ name: 'Article' }"
-      >
-        <Icon href="#icon-article" />
-        <span class="text-gray-500 mt-2 zoom-50">博客</span>
-      </router-link>
+      <!-- article -->
+      <div class="w-full h-full">
+        <router-link
+          class="h-full flex flex-col items-center justify-center"
+          :to="{ name: 'Article' }"
+          v-if="actions('Article')"
+        >
+          <Icon href="#icon-article" />
+          <span class="text-gray-500 mt-2 zoom-50">博客</span>
+        </router-link>
+        <router-link
+          class="h-full flex flex-col items-center justify-center"
+          :to="{ name: 'Article.Create' }"
+          v-else
+        >
+          <Icon href="#icon-article" />
+          <span class="text-gray-500 mt-2 zoom-50">写点啥</span>
+        </router-link>
+      </div>
       <router-link
         class="w-full h-full flex flex-col items-center justify-center"
         :to="{ name: 'Todo' }"
@@ -57,6 +69,7 @@
 import { defineComponent } from 'vue'
 import Icon from '@/components/Icon.vue'
 import Message from '@/plugins/Message'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'Navbar',
@@ -70,13 +83,24 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  setup() {
+  setup(prop) {
+    const router = useRouter()
     const reserve = () => {
       Message('留个坑位。')
     }
 
+    const actions = routeName => {
+      let boolean = true
+      if (router.currentRoute.value.name === routeName && prop.isLogged) {
+        boolean = false
+      }
+
+      return boolean
+    }
+
     return {
       reserve,
+      actions,
     }
   },
   components: {
