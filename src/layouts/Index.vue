@@ -14,12 +14,10 @@
 import { defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
 import Navbar from './components/Navbar.vue'
-import Scrollbar from './components/Scrollbar.vue'
 
 export default defineComponent({
   name: 'Layout',
   components: {
-    Scrollbar,
     Navbar,
   },
   setup() {
