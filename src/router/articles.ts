@@ -7,6 +7,7 @@ const articlesRoute: Array<RouteRecordRaw> = [
     component: () => import('@/views/article/Index.vue'),
     meta: {
       title: 'article',
+      auth: false,
     },
   },
   {
@@ -15,6 +16,7 @@ const articlesRoute: Array<RouteRecordRaw> = [
     component: () => import('@/views/article/Create.vue'),
     meta: {
       title: 'article',
+      auth: true,
     },
   },
   {
@@ -23,6 +25,7 @@ const articlesRoute: Array<RouteRecordRaw> = [
     component: () => import('@/views/article/Edit.vue'),
     meta: {
       title: 'article',
+      auth: true,
     },
   },
   {
@@ -31,6 +34,7 @@ const articlesRoute: Array<RouteRecordRaw> = [
     component: () => import('@/views/article/Show.vue'),
     meta: {
       title: 'article',
+      auth: false,
     },
   },
 ]
