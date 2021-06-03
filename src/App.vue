@@ -1,7 +1,5 @@
 <template>
-  <div class="h-screen w-full flex justify-center items-center">
-    <img class="h-36" alt="Vue logo" src="./assets/logo.png" />
-  </div>
+  <router-view />
 </template>
 
 <script lang="ts" setup>

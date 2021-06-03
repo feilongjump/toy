@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .main-height {
+    min-height: calc(100vh - 7rem);
+  }
+
+  .indent-4 {
+    text-indent: 1rem;
+  }
+}
