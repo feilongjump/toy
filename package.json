@@ -8,6 +8,7 @@
     "lint": "eslint --fix --ext .ts,.js,.vue src"
   },
   "dependencies": {
+    "vditor": "^3.8.5",
     "vue": "^3.0.11",
     "vue-router": "^4.0.8"
   },
