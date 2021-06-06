@@ -2,7 +2,7 @@
   <div class="min-h-screen container mx-auto px-4 sm:px-0">
     <Header />
 
-    <div class="main-height flex justify-center items-center">
+    <div class="main-height py-4">
       <router-view />
     </div>
 
