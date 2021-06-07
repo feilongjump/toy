@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import markdown from '@/utils/markdown'
+import markdown from '@/utils/markdown.js'
 import { ref } from 'vue'
 
 const content = ref()
