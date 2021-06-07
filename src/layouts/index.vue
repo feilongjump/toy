@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen container mx-auto px-4 sm:px-0">
+  <div class="min-h-screen container mx-auto px-6 sm:px-0">
     <Header />
 
     <div class="main-height py-4">
