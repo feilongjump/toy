@@ -20,6 +20,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
     camelcase: 'off',
-    'global-require': 'off'
+    'global-require': 'off',
+    'no-plusplus': 'off'
   }
 }
