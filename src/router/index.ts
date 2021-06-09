@@ -1,5 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layouts/index.vue'
+import BackstageLayout from '@/layouts/backstage/index.vue'
+
+const backstage = [
+  {
+    path: '/backstage',
+    component: BackstageLayout,
+    children: [
+      {
+        path: '',
+        name: 'Backstage.Home',
+        component: () => import('@/views/backstage/home/index.vue')
+      }
+    ]
+  }
+]
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,7 +32,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/articles/show.vue')
       }
     ]
-  }
+  },
+  ...backstage
 ]
 
 const router = createRouter({

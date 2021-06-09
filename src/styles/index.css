@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer utilities {
+  @variants hover {
+    .menu-active {
+      @apply bg-blue-100 fill-current text-blue-500;
+    }
+  }
+  .h-sidebar {
+    height: calc(100vh - 2rem);
+  }
   .main-height {
     min-height: calc(100vh - 7rem);
   }
