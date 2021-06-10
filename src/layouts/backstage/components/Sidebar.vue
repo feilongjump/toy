@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-4 -left-24 sm:left-4 h-sidebar w-24 bg-white rounded-2xl px-2 transition-all duration-500 ease-in-out"
+    class="fixed top-4 -left-24 sm:left-4 h-sidebar w-24 bg-white rounded-2xl px-2 transition-all duration-500 ease-in-out shadow-xl"
   >
     <div class="w-full h-full flex items-center justify-between flex-col">
       <div class="h-20 flex items-center flex-none">LOGO</div>
