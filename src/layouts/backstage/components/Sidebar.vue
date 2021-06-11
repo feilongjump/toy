@@ -52,7 +52,7 @@ const menus = [
     component: ChartStock
   },
   {
-    name: '',
+    name: 'Backstage.User',
     component: User
   }
 ]
