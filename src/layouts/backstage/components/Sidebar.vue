@@ -5,14 +5,15 @@
     <div class="w-full h-full flex items-center justify-between flex-col">
       <div class="h-20 flex items-center flex-none">LOGO</div>
       <div class="h-full flex flex-col items-center justify-center flex-grow">
-        <div
+        <router-link
           class="my-4 p-2 rounded-xl hover:menu-active transition-all duration-500 ease-in-out"
           v-for="(menu, index) in menus"
           :key="index"
-          :class="menu.isActive"
+          :class="menu.name === activeMenuName ? 'menu-active' : ''"
+          :to="{ name: menu.name }"
         >
           <component :is="menu.component" theme="outline" size="24"></component>
-        </div>
+        </router-link>
       </div>
       <div class="h-20 flex items-center flex-none">
         <div class="cursor-pointer">
@@ -25,22 +26,33 @@
 
 <script lang="ts" setup>
 import { BookOpen, ChartStock, Dashboard, Logout, Puzzle, User } from '@icon-park/vue-next'
+import router from '@/router'
+import { computed } from 'vue'
+
+// current route name
+const activeMenuName = computed(() => {
+  return router.currentRoute.value.name
+})
 
 const menus = [
   {
-    isActive: 'menu-active',
+    name: 'Backstage.Dashboard',
     component: Dashboard
   },
   {
+    name: '',
     component: BookOpen
   },
   {
+    name: '',
     component: Puzzle
   },
   {
+    name: '',
     component: ChartStock
   },
   {
+    name: '',
     component: User
   }
 ]

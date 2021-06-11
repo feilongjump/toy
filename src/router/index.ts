@@ -6,11 +6,12 @@ const backstage = [
   {
     path: '/backstage',
     component: BackstageLayout,
+    redirect: { name: 'Backstage.Dashboard' },
     children: [
       {
-        path: '',
-        name: 'Backstage.Home',
-        component: () => import('@/views/backstage/home/index.vue')
+        path: 'dashboard',
+        name: 'Backstage.Dashboard',
+        component: () => import('@/views/backstage/dashboard/index.vue')
       }
     ]
   }
