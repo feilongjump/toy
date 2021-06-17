@@ -14,6 +14,11 @@ const backstage = [
         component: () => import('@/views/backstage/dashboard/index.vue')
       },
       {
+        path: 'articles',
+        name: 'Backstage.Article',
+        component: () => import('@/views/backstage/articles/index.vue')
+      },
+      {
         path: 'users',
         name: 'Backstage.User',
         component: () => import('@/views/backstage/users/index.vue')

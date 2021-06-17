@@ -40,7 +40,7 @@ const menus = [
     component: Dashboard
   },
   {
-    name: '',
+    name: 'Backstage.Article',
     component: BookOpen
   },
   {
