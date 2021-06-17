@@ -1,5 +1,5 @@
 <template>
-  <div class="h-12 w-full flex justify-center itesm-center">
+  <div class="h-12 w-full mt-4 flex justify-center itesm-center">
     <div>
       <span class="text-2xl leading-none">🏃‍♂️</span>
       <span class="ml-1 text-xl text-red-400 leading-none">❤</span>

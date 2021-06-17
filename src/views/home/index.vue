@@ -1,5 +1,5 @@
 <template>
-  <div class="main-height flex justify-center items-center">
+  <div class="main-height flex flex-col justify-center items-center">
     <router-link
       class="w-96 cursor-pointer"
       v-for="(article, index) in articles"

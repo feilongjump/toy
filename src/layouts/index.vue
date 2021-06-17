@@ -2,7 +2,7 @@
   <div class="min-h-screen container mx-auto px-6 sm:px-0">
     <Header />
 
-    <div class="main-height py-4">
+    <div class="main-height">
       <router-view />
     </div>
 

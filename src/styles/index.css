@@ -12,7 +12,7 @@
     height: calc(100vh - 2rem);
   }
   .main-height {
-    min-height: calc(100vh - 7rem);
+    min-height: calc(100vh - 8rem);
   }
 
   .indent-4 {
