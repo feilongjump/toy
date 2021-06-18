@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import App from '@/App.vue'
 import Layout from '@/layouts/index.vue'
 import BackstageLayout from '@/layouts/backstage/index.vue'
 
@@ -41,6 +42,17 @@ const routes: Array<RouteRecordRaw> = [
         path: '/articles/:id(\\d+)',
         name: 'Article.Show',
         component: () => import('@/views/articles/show.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    component: App,
+    children: [
+      {
+        path: '',
+        name: 'Login',
+        component: () => import('@/views/auth/login.vue')
       }
     ]
   },

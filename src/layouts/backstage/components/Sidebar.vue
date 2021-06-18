@@ -16,7 +16,7 @@
         </router-link>
       </div>
       <div class="h-20 flex items-center flex-none">
-        <div class="cursor-pointer">
+        <div class="cursor-pointer" @click="quit">
           <Logout theme="outline" size="24" fill="#000000"></Logout>
         </div>
       </div>
@@ -56,4 +56,8 @@ const menus = [
     component: User
   }
 ]
+
+const quit = () => {
+  router.push({ name: 'Login' })
+}
 </script>
