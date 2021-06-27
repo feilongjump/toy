@@ -16,7 +16,7 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Title
+                  Email
                 </th>
                 <th
                   scope="col"
@@ -24,19 +24,13 @@
                 >
                   Status
                 </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Role
-                </th>
                 <th scope="col" class="relative px-6 py-3">
                   <span class="sr-only">Edit</span>
                 </th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="person in people" :key="person.email">
+              <tr v-for="person in users" :key="person.email">
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex-shrink-0 h-10 w-10">
@@ -46,15 +40,11 @@
                       <div class="text-sm font-medium text-gray-900">
                         {{ person.name }}
                       </div>
-                      <div class="text-sm text-gray-500">
-                        {{ person.email }}
-                      </div>
                     </div>
                   </div>
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">{{ person.title }}</div>
-                  <div class="text-sm text-gray-500">{{ person.department }}</div>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{ person.email }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span
@@ -62,9 +52,6 @@
                   >
                     Active
                   </span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ person.role }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -79,16 +66,14 @@
 </template>
 
 <script lang="ts" setup>
-const people = [
-  {
-    name: 'Jane Cooper',
-    title: 'Regional Paradigm Technician',
-    department: 'Optimization',
-    role: 'Admin',
-    email: 'jane.cooper@example.com',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
-  }
-  // More people...
-]
+import Users from '@/api/users'
+import { ref, onMounted } from 'vue'
+
+const users = ref<any>([])
+
+onMounted(() => {
+  new Users().index().then(response => {
+    users.value = response.data
+  })
+})
 </script>
