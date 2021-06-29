@@ -16,12 +16,6 @@
                   scope="col"
                   class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Status
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
                   Created_at
                 </th>
                 <th
@@ -36,25 +30,24 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="(article, index) in articles" :key="index">
+              <tr v-for="topic in topics" :key="topic.id">
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">{{ article.title }}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span
-                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                  >
-                    Active
-                  </span>
+                  <div class="text-sm text-gray-900">{{ topic.title }}</div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ article.created_at }}
+                  {{ topic.created_at }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {{ article.updated_at }}
+                  {{ topic.updated_at }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                  <router-link
+                    :to="{ name: 'Backstage.Topic.Show', params: { id: topic.id } }"
+                    href="#"
+                    class="text-indigo-600 hover:text-indigo-900"
+                  >
+                    Edit
+                  </router-link>
                 </td>
               </tr>
             </tbody>
@@ -66,12 +59,14 @@
 </template>
 
 <script lang="ts" setup>
-const articles = [
-  {
-    title: 'Regional Paradigm Technician',
-    status: 'active',
-    created_at: '2021-06-17 10:30',
-    updated_at: '2021-06-17 10:30'
-  }
-]
+import Topics from '@/api/topics'
+import { ref, onMounted } from 'vue'
+
+const topics = ref<any>([])
+
+onMounted(() => {
+  new Topics().index().then(response => {
+    topics.value = response.data
+  })
+})
 </script>

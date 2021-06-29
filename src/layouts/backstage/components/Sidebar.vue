@@ -31,7 +31,11 @@ import { computed } from 'vue'
 
 // current route name
 const activeMenuName = computed(() => {
-  return router.currentRoute.value.name
+  const currentRoute = router.currentRoute.value
+  if (currentRoute.meta?.parentName) {
+    return currentRoute.meta.parentName
+  }
+  return currentRoute.name
 })
 
 const menus = [
@@ -40,7 +44,7 @@ const menus = [
     component: Dashboard
   },
   {
-    name: 'Backstage.Article',
+    name: 'Backstage.Topic',
     component: BookOpen
   },
   {

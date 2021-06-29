@@ -1,29 +1,28 @@
 <template>
   <div class="main-height flex flex-col justify-center items-center">
     <router-link
-      class="w-96 cursor-pointer"
-      v-for="(article, index) in articles"
+      class="w-96 cursor-pointer my-6"
+      v-for="(topic, index) in topics"
       :key="index"
-      :to="{ name: 'Article.Show', params: { id: article.id } }"
+      :to="{ name: 'Topic.Show', params: { id: topic.id } }"
     >
-      <h2 class="text-2xl font-medium mb-4">{{ article.title }}</h2>
-      <p class="mb-2 tracking-wide text-left indent-4">
-        {{ article.content }}
-      </p>
+      <h2 class="text-2xl font-medium mb-4">{{ topic.title }}</h2>
       <div class="flex justify-end">
-        <span class="text-gray-400 text-sm">{{ article.created_at }}</span>
+        <span class="text-gray-400 text-sm">{{ topic.created_at }}</span>
       </div>
     </router-link>
   </div>
 </template>
 
 <script lang="ts" setup>
-const articles = [
-  {
-    id: 1,
-    title: 'Title.',
-    content: 'This markdown content.',
-    created_at: '2021.06.03'
-  }
-]
+import Topics from '@/api/topics'
+import { ref, onMounted } from 'vue'
+
+const topics = ref<any>([])
+
+onMounted(() => {
+  new Topics().index().then(response => {
+    topics.value = response.data
+  })
+})
 </script>

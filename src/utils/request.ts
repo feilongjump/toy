@@ -118,6 +118,11 @@ class Request {
     return result
   }
 
+  public async patch(url: string, params: any = {}, config: object = {}) {
+    const result = await this.service.patch(url, params, config)
+    return result
+  }
+
   public async delete(url: string, config: object = {}) {
     const result = this.service.delete(url, config)
     return result

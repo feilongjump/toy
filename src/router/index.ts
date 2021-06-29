@@ -15,9 +15,25 @@ const backstage = [
         component: () => import('@/views/backstage/dashboard/index.vue')
       },
       {
-        path: 'articles',
-        name: 'Backstage.Article',
-        component: () => import('@/views/backstage/articles/index.vue')
+        path: 'topics',
+        name: 'Backstage.Topic',
+        component: () => import('@/views/backstage/topics/index.vue')
+      },
+      {
+        path: 'topics/:id(\\d+)',
+        name: 'Backstage.Topic.Show',
+        component: () => import('@/views/backstage/topics/form.vue'),
+        meta: {
+          parentName: 'Backstage.Topic'
+        }
+      },
+      {
+        path: 'topics/create',
+        name: 'Backstage.Topic.Create',
+        component: () => import('@/views/backstage/topics/form.vue'),
+        meta: {
+          parentName: 'Backstage.Topic'
+        }
       },
       {
         path: 'users',
@@ -39,9 +55,9 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/home/index.vue')
       },
       {
-        path: '/articles/:id(\\d+)',
-        name: 'Article.Show',
-        component: () => import('@/views/articles/show.vue')
+        path: '/topics/:id(\\d+)',
+        name: 'Topic.Show',
+        component: () => import('@/views/topics/show.vue')
       }
     ]
   },
