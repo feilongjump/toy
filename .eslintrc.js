@@ -15,6 +15,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'vue/no-multiple-template-root': 'off',
+    'vue/multi-word-component-names': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
   }
 }
