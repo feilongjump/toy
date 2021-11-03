@@ -6,13 +6,11 @@
         <span></span>
       </div>
       <div class="mt-4 text-gray-400">
-        <span
-          class="cursor-pointer m-4"
-          v-for="(item, index) in module"
-          :key="index"
-          @click="alert(item)"
-        >
-          {{ item }}
+        <span class="cursor-pointer m-4" v-for="(item, index) in module" :key="index">
+          <router-link v-if="item.pathName" :to="{ name: item.pathName }">
+            {{ item.name }}
+          </router-link>
+          <span v-else @click="alert(item.name)">{{ item.name }}</span>
         </span>
       </div>
     </div>
@@ -22,7 +20,28 @@
 <script setup lang="ts">
 import { ElMessage } from 'element-plus'
 
-const module = ['Home', 'Blog', 'Shop', 'Auth', 'Todo']
+const module = [
+  {
+    name: 'Home',
+    pathName: ''
+  },
+  {
+    name: 'Blog',
+    pathName: ''
+  },
+  {
+    name: 'Shop',
+    pathName: ''
+  },
+  {
+    name: 'Auth',
+    pathName: 'Login'
+  },
+  {
+    name: 'Todo',
+    pathName: ''
+  }
+]
 
 const alert = (msg = '') => {
   ElMessage.success(`Hello ${msg}!`)
