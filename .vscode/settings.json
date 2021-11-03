@@ -2,7 +2,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": [
-      "vitejs"
-  ]
+  "cSpell.words": ["vitejs"],
+  "css.validate": false
 }
