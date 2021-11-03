@@ -75,6 +75,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@heroicons/vue@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npmmirror.com/@heroicons/vue/download/@heroicons/vue-1.0.5.tgz#ccef02a9a75e47129a0b8faf5d1d93bd90723264"
+  integrity sha1-zO8CqadeRxKaC4+vXR2TvZByMmQ=
+
 "@humanwhocodes/config-array@^0.6.0":
   version "0.6.0"
   resolved "https://registry.npmmirror.com/@humanwhocodes/config-array/download/@humanwhocodes/config-array-0.6.0.tgz#b5621fdb3b32309d2d16575456cbc277fa8f021a"
