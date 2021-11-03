@@ -18,6 +18,8 @@
       md:opacity-100
     "
   ></div>
+  <!-- star -->
+  <Star />
   <!-- container -->
   <div class="login-container h-screen text-white">
     <!-- Header -->
@@ -89,6 +91,7 @@
 import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ArrowNarrowRightIcon, LockClosedIcon } from '@heroicons/vue/solid'
+import Star from '@/components/Star.vue'
 
 const params = reactive({
   username: '',
