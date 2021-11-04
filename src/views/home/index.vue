@@ -27,7 +27,7 @@ const module = [
   },
   {
     name: 'Blog',
-    pathName: ''
+    pathName: 'Article'
   },
   {
     name: 'Shop',
