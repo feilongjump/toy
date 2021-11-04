@@ -28,7 +28,7 @@
       <span>Hello</span>
     </div>
     <!-- Main -->
-    <div class="w-full pt-16 sm:pt-0 z-10">
+    <div class="w-full pt-16 sm:pt-0 z-10 relative">
       <div class="max-w-2xl mx-auto">
         <div class="mx-4 px-4 py-6 bg-gray-800 rounded-lg">
           <nav class="text-center mb-4 text-xl">Welcome to Toy.</nav>
