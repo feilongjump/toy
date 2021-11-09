@@ -10,29 +10,79 @@
     </div>
     <div class="w-full flex flex-col items-center">
       <div
-        class="w-3/4 bg-white rounded-xl mb-12 shadow-md"
+        class="w-full lg:w-3/4 bg-white lg:rounded-xl mb-12 last:mb-0 lg:shadow-md"
         v-for="(article, index) in articles"
         :key="index"
       >
-        <div class="flex items-center border-b">
-          <div class="w-3/4 p-12 text-2xl font-semibold tracking-widest">
+        <div class="flex flex-col lg:flex-row items-center border-b">
+          <div
+            class="
+              w-full
+              lg:w-3/4
+              pt-12
+              px-12
+              pb-0
+              lg:pb-12
+              text-2xl
+              font-semibold
+              tracking-widest
+              text-center
+              lg:text-left
+            "
+          >
             {{ article.title }}
           </div>
-          <div class="w-1/4 p-12 border-l flex justify-end flex-col">
-            <span class="w-full mb-4 text-right text-sm font-semibold text-gray-700">
+          <div
+            class="
+              lg:w-1/4
+              p-12
+              lg:border-l
+              flex
+              justify-center
+              lg:justify-end
+              flex-row
+              lg:flex-col
+              items-center
+              lg:items-end
+            "
+          >
+            <span
+              class="
+                lg:mb-4
+                pr-8
+                lg:pr-0
+                text-center
+                lg:text-right
+                text-sm
+                font-semibold
+                text-gray-700
+              "
+            >
               {{ article.created_at }}
             </span>
-            <div class="flex items-center justify-end">
-              <span class="text-gray-400 font-semibold tracking-widest mr-4">Toy</span>
-              <img class="w-16 h-16 rounded-full" :src="avatar" />
+            <div
+              class="
+                flex flex-row-reverse
+                lg:flex-row
+                items-center
+                justify-end
+                pl-8
+                lg:pl-0
+                border-l
+                lg:border-l-0
+              "
+            >
+              <span class="text-gray-400 font-semibold tracking-widest mx-4">Toy</span>
+              <img class="w-10 h-10 lg:w-16 lg:h-16 rounded-full" :src="avatar" />
             </div>
           </div>
         </div>
-        <div class="p-12">
+        <div class="pb-12 lg:p-12">
           <img
             class="
               w-full
-              h-96
+              h-56
+              lg:h-96
               mb-12
               object-none object-center
               cursor-pointer
@@ -44,19 +94,22 @@
             "
             :src="article.img"
           />
-          <p class="text-gray-400 mb-12">{{ article.body }}</p>
-          <div class="flex justify-between items-center">
+          <p class="text-gray-400 mb-12 px-6 lg:px-0">{{ article.body }}</p>
+          <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
             <div
               class="
-                w-48
+                w-10/12
+                lg:w-48
                 h-14
                 border
                 flex
                 justify-center
                 items-center
                 cursor-pointer
-                rounded-xl
+                lg:rounded-xl
                 font-semibold
+                mt-10
+                lg:mt-0
               "
             >
               READ MORE
