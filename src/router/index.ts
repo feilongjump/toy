@@ -7,11 +7,18 @@ const home = {
   component: () => import('@/views/home/index.vue')
 }
 
-const auth = {
-  path: 'login',
-  name: 'Login',
-  component: () => import('@/views/auth/login.vue')
-}
+const auth = [
+  {
+    path: 'login',
+    name: 'Login',
+    component: () => import('@/views/auth/index.vue')
+  },
+  {
+    path: 'register',
+    name: 'Register',
+    component: () => import('@/views/auth/index.vue')
+  }
+]
 
 const articles = {
   path: 'articles',
@@ -31,7 +38,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     redirect: { name: 'Home' },
     component: App,
-    children: [home, auth, articles]
+    children: [home, ...auth, articles]
   }
 ]
 
