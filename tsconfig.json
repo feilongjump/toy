@@ -6,6 +6,9 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
