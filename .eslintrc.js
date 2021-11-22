@@ -13,7 +13,9 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     'import/extensions': 'off',
+    'no-param-reassign': 'off',
     'import/no-unresolved': 'off',
+    'class-methods-use-this': 'off',
     'vue/no-multiple-template-root': 'off',
     'vue/multi-word-component-names': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
