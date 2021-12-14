@@ -14,5 +14,5 @@ module.exports = {
       margin: ['last']
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 }

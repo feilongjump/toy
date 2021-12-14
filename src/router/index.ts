@@ -29,6 +29,11 @@ const articles = {
       path: '',
       name: 'Article',
       component: () => import('@/views/articles/index.vue')
+    },
+    {
+      path: ':id(\\d+)',
+      name: 'Article.Show',
+      component: () => import('@/views/articles/show.vue')
     }
   ]
 }
