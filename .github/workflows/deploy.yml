@@ -9,8 +9,8 @@ on:
       - LICENSE
 
 jobs:
-  build-production:
-   runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本
+  build:
+    runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本
     strategy:
       matrix:
         node-version: [14.x] # 配置所需 node 版本
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - name: Install dependencies  # 安装依赖
+      - name: Install dependencies # 安装依赖
         run: yarn
       - name: Build # 打包代码
         run: yarn build
@@ -32,5 +32,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "./dist/"
-          target: "/var/www/toy/dist/"
+          source: './dist/'
+          target: '/var/www/toy/dist/'
