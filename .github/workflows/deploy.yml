@@ -1,0 +1,36 @@
+name: Toy deploy
+
+on:
+  push:
+    branches: # 只在以下分支上 push 触发部署
+      - next
+    paths-ignore: # 下列文件的变更不触发部署
+      - README.md
+      - LICENSE
+
+jobs:
+  build-production:
+   runs-on: ubuntu-latest # 使用 ubuntu 系统镜像运行自动化脚本
+    strategy:
+      matrix:
+        node-version: [14.x] # 配置所需 node 版本
+    steps: # 自动化步骤
+      - uses: actions/checkout@v2 # 检出仓库副本
+      - name: Use Node.js ${{ matrix.node-version }} # 安装 Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - name: Install dependencies  # 安装依赖
+        run: yarn
+      - name: Build # 打包代码
+        run: yarn build
+      - name: deploy to server # 部署至服务器
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "./dist/"
+          target: "/var/www/toy/dist/"
