@@ -2,21 +2,7 @@
   <!-- lamp -->
   <div class="w-52 h-52 fixed top-0 -left-32 bg-pink-500 filter blur-5xl"></div>
   <div
-    class="
-      w-52
-      h-52
-      fixed
-      -right-32
-      inset-y-2/3
-      bg-blue-500
-      filter
-      blur-5xl
-      transition
-      duration-500
-      ease-in-out
-      opacity-0
-      md:opacity-100
-    "
+    class="w-52 h-52 fixed -right-32 inset-y-2/3 bg-blue-500 filter blur-5xl transition duration-500 ease-in-out opacity-0 md:opacity-100"
   ></div>
   <!-- star -->
   <Star />
@@ -34,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, ref, watch } from 'vue'
 import Star from '@/components/Star.vue'
 import router from '@/router'
 
@@ -47,13 +33,15 @@ export default {
   data() {
     const routerName = ref(router.currentRoute.value.name)
 
+    watch(
+      () => router.currentRoute.value,
+      (val) => {
+        routerName.value = val.name
+      }
+    )
+
     return {
       routerName
-    }
-  },
-  watch: {
-    $route(to: any) {
-      this.routerName = to.name
     }
   }
 }
