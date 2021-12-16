@@ -18,7 +18,27 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
+
+const auth = () => {
+  const user = ref<any>(localStorage.getItem('user'))
+  if (user) {
+    user.value = JSON.parse(user.value)
+
+    // 已登录
+    return {
+      name: user.value.name,
+      pathName: ''
+    }
+  }
+
+  // 未登录
+  return {
+    name: 'Auth',
+    pathName: 'Login'
+  }
+}
 
 const module = [
   {
@@ -33,10 +53,7 @@ const module = [
     name: 'Shop',
     pathName: ''
   },
-  {
-    name: 'Auth',
-    pathName: 'Login'
-  },
+  auth(),
   {
     name: 'Todo',
     pathName: ''

@@ -62,6 +62,8 @@ import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ArrowNarrowRightIcon, LockClosedIcon } from '@heroicons/vue/solid'
 import Auth from '@/api/auth'
+import User from '@/api/user'
+import router from '@/router'
 
 const params = reactive({
   username: '',
@@ -71,11 +73,19 @@ const params = reactive({
 const login = () => {
   const AuthRequest = new Auth()
 
-  AuthRequest.login(params).then((response) => {
-    localStorage.setItem('token_type', response.token_type)
-    localStorage.setItem('token', response.access_token)
+  AuthRequest.login(params)
+    .then((response) => {
+      localStorage.setItem('token_type', response.token_type)
+      localStorage.setItem('token', response.access_token)
+    })
+    .then(() => {
+      new User().me().then((response) => {
+        localStorage.setItem('user', JSON.stringify(response))
 
-    ElMessage.success('登录成功！')
-  })
+        ElMessage.success('登录成功！')
+
+        router.push({ name: 'Home' })
+      })
+    })
 }
 </script>
