@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import App from '@/App.vue'
 import afterEach from './afterEach'
+import backstage from './backstage'
 
 const home = {
   path: '',
@@ -45,11 +46,13 @@ const routes: Array<RouteRecordRaw> = [
     redirect: { name: 'Home' },
     component: App,
     children: [home, ...auth, articles]
-  }
+  },
+  ...backstage
 ]
 
 const router = createRouter({
   history: createWebHistory(),
+  linkActiveClass: 'activate-menu',
   routes
 })
 

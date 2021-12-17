@@ -12,4 +12,14 @@ export default class Auth {
     const url = `${this.BASE_URL}/${id}`
     return Request.get(url)
   }
+
+  public store(params: {}) {
+    return Request.post(this.BASE_URL, params)
+  }
+
+  public patch(id: any, params: {}) {
+    const url = `${this.BASE_URL}/${id}`
+
+    return Request.patch(url, params)
+  }
 }

@@ -1,4 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  @apply font-sans antialiased;
+  /* font-family: Consolas, Monaco, monospace; */
+  @apply font-sans antialiased min-h-screen;
+}
+
+@layer base {
+  /* Table */
+  .table-border-spacing {
+    border-spacing: 0 0.8rem;
+  }
+}
+
+@layer utilities {
+  .activate-menu {
+    @apply text-white bg-purple-500 rounded-xl font-semibold;
+  }
+  .activate-menu > svg {
+    @apply w-6 h-6;
+  }
 }

@@ -29,7 +29,7 @@ const auth = () => {
     // 已登录
     return {
       name: user.name,
-      pathName: ''
+      pathName: 'Backstage'
     }
   }
 
