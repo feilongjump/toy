@@ -13,6 +13,7 @@
     "@heroicons/vue": "^1.0.5",
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.6",
+    "vditor": "^3.8.8",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12"
   },

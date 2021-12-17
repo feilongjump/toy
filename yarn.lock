@@ -852,6 +852,11 @@ didyoumean@^1.2.2:
   resolved "https://registry.npmmirror.com/didyoumean/download/didyoumean-1.2.2.tgz#989346ffe9e839b4555ecf5666edea0d3e8ad037"
   integrity sha1-mJNG/+noObRVXs9WZu3qDT6K0Dc=
 
+diff-match-patch@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/diff-match-patch/download/diff-match-patch-1.0.5.tgz#abb584d5f10cd1196dfc55aa03701592ae3f7b37"
+  integrity sha1-q7WE1fEM0Rlt/FWqA3AVkq4/ezc=
+
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.nlark.com/dir-glob/download/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"
@@ -2797,6 +2802,13 @@ v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
+
+vditor@^3.8.8:
+  version "3.8.8"
+  resolved "https://registry.npmmirror.com/vditor/download/vditor-3.8.8.tgz#03fc4f39a0010bee9a3a3ee41f8e3f33c185dcbb"
+  integrity sha512-qaZcxx7SDUkxTTnoBNVzhhLFHXPnaE+DCPUX07K7kBhvgOrJS06TkclbffL+i2U1edEkY8QBkGJU3AtNB90OzA==
+  dependencies:
+    diff-match-patch "^1.0.5"
 
 vite@^2.7.1:
   version "2.7.1"
