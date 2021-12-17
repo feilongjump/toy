@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import App from '@/App.vue'
+import afterEach from './afterEach'
 
 const home = {
   path: '',
@@ -51,5 +52,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+router.afterEach(afterEach)
 
 export default router

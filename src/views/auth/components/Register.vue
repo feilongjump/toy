@@ -65,6 +65,8 @@ import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ArrowNarrowRightIcon, MailIcon, LockClosedIcon } from '@heroicons/vue/solid'
 import Auth from '@/api/auth'
+import User from '@/api/user'
+import router from '@/router'
 
 const params = reactive({
   name: '',
@@ -75,8 +77,19 @@ const params = reactive({
 const login = () => {
   const AuthRequest = new Auth()
 
-  AuthRequest.register(params).then(() => {
-    ElMessage.success('注册成功，请登录您的邮箱进行激活账户！')
-  })
+  AuthRequest.register(params)
+    .then((response) => {
+      localStorage.setItem('token_type', response.token_type)
+      localStorage.setItem('token', response.access_token)
+
+      ElMessage.success('注册成功，请登录您的邮箱进行激活账户！')
+    })
+    .then(() => {
+      new User().me().then((response) => {
+        localStorage.setItem('user', JSON.stringify(response))
+
+        router.push({ name: 'Home' })
+      })
+    })
 }
 </script>

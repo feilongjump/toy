@@ -18,17 +18,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
 
 const auth = () => {
-  const user = ref<any>(localStorage.getItem('user'))
+  let user = <any>localStorage.getItem('user')
+
   if (user) {
-    user.value = JSON.parse(user.value)
+    user = JSON.parse(user)
 
     // 已登录
     return {
-      name: user.value.name,
+      name: user.name,
       pathName: ''
     }
   }
