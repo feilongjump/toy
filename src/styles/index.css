@@ -4,8 +4,7 @@
 
 html,
 body {
-  /* font-family: Consolas, Monaco, monospace; */
-  @apply font-sans antialiased min-h-screen;
+  @apply font-sans antialiased min-h-screen bg-gray-100;
 }
 
 @layer base {
@@ -16,10 +15,10 @@ body {
 }
 
 @layer utilities {
-  .activate-menu {
+  ul li .activate-menu {
     @apply text-white bg-purple-500 rounded-xl font-semibold;
   }
-  .activate-menu > svg {
+  ul li .activate-menu > svg {
     @apply w-6 h-6;
   }
 }
