@@ -4,7 +4,7 @@
     <div>
       <!-- Logo -->
       <div class="h-9">
-        <span class="text-gray-300 text-3xl">Toy</span>
+        <router-link :to="{ name: 'Home' }" class="text-gray-300 text-3xl">Toy</router-link>
       </div>
       <!-- Menu -->
       <div class="mt-8">
