@@ -31,7 +31,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { ChatAltIcon, EyeIcon, HeartIcon, ReplyIcon } from '@heroicons/vue/solid'
 import router from '@/router'
-import Info from './components/Info.vue'
+import Info from '@/components/Info.vue'
 import Article from '@/api/article'
 import { Details } from './types'
 

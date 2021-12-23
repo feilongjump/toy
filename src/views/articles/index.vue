@@ -66,7 +66,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { ChatAltIcon, EyeIcon, HeartIcon } from '@heroicons/vue/solid'
-import Info from './components/Info.vue'
+import Info from '@/components/Info.vue'
 import avatar from '@/assets/avatar.jpg'
 import img1 from '@/assets/articles/1.jpg'
 import img2 from '@/assets/articles/2.jpg'
