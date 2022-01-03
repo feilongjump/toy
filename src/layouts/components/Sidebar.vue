@@ -81,6 +81,11 @@ const menus = [
     title: 'Article',
     icon: LibraryIcon,
     routeName: 'Backstage.Article'
+  },
+  {
+    title: 'Todo',
+    icon: ClipboardListIcon,
+    routeName: 'Backstage.Todo'
   }
 ]
 

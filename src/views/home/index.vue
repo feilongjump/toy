@@ -56,7 +56,7 @@ const module = [
   auth(),
   {
     name: 'Todo',
-    pathName: ''
+    pathName: 'Todo'
   }
 ]
 

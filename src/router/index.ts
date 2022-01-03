@@ -40,12 +40,25 @@ const articles = {
   ]
 }
 
+const todos = {
+  path: 'todos',
+  redirect: { name: 'Todo' },
+  component: App,
+  children: [
+    {
+      path: '',
+      name: 'Todo',
+      component: () => import('@/views/todos/index.vue')
+    }
+  ]
+}
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: { name: 'Home' },
     component: App,
-    children: [home, ...auth, articles]
+    children: [home, ...auth, articles, todos]
   },
   ...backstage
 ]

@@ -64,6 +64,36 @@ const backstage: Array<RouteRecordRaw> = [
             }
           }
         ]
+      },
+      {
+        path: 'todos',
+        component: App,
+        children: [
+          {
+            path: '',
+            name: 'Backstage.Todo',
+            component: () => import('@/views/backstage/todos/index.vue'),
+            meta: {
+              auth: true
+            }
+          },
+          {
+            path: 'add',
+            name: 'Backstage.Todo.Add',
+            component: () => import('@/views/backstage/todos/add.vue'),
+            meta: {
+              auth: true
+            }
+          },
+          {
+            path: ':id(\\d+)/edit',
+            name: 'Backstage.Todo.Edit',
+            component: () => import('@/views/backstage/todos/edit.vue'),
+            meta: {
+              auth: true
+            }
+          }
+        ]
       }
     ]
   }
