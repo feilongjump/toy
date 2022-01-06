@@ -17,9 +17,15 @@ export default class Auth {
     return Request.post(this.BASE_URL, params)
   }
 
-  public patch(id: any, params: {}) {
+  public update(id: any, params: {}) {
     const url = `${this.BASE_URL}/${id}`
 
     return Request.patch(url, params)
+  }
+
+  public handleStatus(id: any, status: string) {
+    const url = `${this.BASE_URL}/${id}/${status}`
+
+    return Request.patch(url)
   }
 }

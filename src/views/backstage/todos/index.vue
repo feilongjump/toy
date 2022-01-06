@@ -4,7 +4,7 @@
   <div class="flex w-full justify-between">
     <div class="h-96 w-72 bg-white py-4 rounded-lg">
       <div class="pb-4 px-2 font-semibold border-b border-black">Created</div>
-      <draggable v-model="created" item-key="id" group="todo">
+      <draggable :list="created" itemKey="id" group="todo" @change="handle($event, 'created')">
         <template #item="{ element }">
           <div class="bg-yellow-100 px-6 py-2 border-b-2 border-gray-300 last-of-type:border-b-0">
             {{ element.title }}
@@ -15,7 +15,12 @@
 
     <div class="h-96 w-72 bg-white py-4 rounded-lg">
       <div class="pb-4 px-2 font-semibold border-b border-black">Processing</div>
-      <draggable v-model="processing" item-key="id" group="todo">
+      <draggable
+        :list="processing"
+        itemKey="id"
+        group="todo"
+        @change="handle($event, 'processing')"
+      >
         <template #item="{ element }">
           <div class="bg-blue-100 px-6 py-2 border-b-2 border-gray-300 last-of-type:border-b-0">
             {{ element.title }}
@@ -25,7 +30,7 @@
     </div>
     <div class="h-96 w-72 bg-white py-4 rounded-lg">
       <div class="pb-4 px-2 font-semibold border-b border-black">Success</div>
-      <draggable v-model="success" item-key="id" group="todo">
+      <draggable :list="success" itemKey="id" group="todo" @change="handle($event, 'success')">
         <template #item="{ element }">
           <div class="bg-green-100 px-6 py-2 border-b-2 border-gray-300 last-of-type:border-b-0">
             {{ element.title }}
@@ -35,7 +40,7 @@
     </div>
     <div class="h-96 w-72 bg-white py-4 rounded-lg">
       <div class="pb-4 px-2 font-semibold border-b border-black">Failed</div>
-      <draggable v-model="failed" item-key="id" group="todo">
+      <draggable :list="failed" itemKey="id" group="todo" @change="handle($event, 'failed')">
         <template #item="{ element }">
           <div class="bg-red-100 px-6 py-2 border-b-2 last-of-type:border-b-0">
             {{ element.title }}
@@ -65,10 +70,10 @@ onMounted(() => {
           created.value.push(item)
           break
         case 'processing':
-          created.value.push(item)
+          processing.value.push(item)
           break
         case 'success':
-          created.value.push(item)
+          success.value.push(item)
           break
         default:
           failed.value.push(item)
@@ -76,4 +81,14 @@ onMounted(() => {
     })
   })
 })
+
+const handle = (evt: any, status: string) => {
+  if (status === 'created') return false
+
+  if (evt.added) {
+    new Todo().handleStatus(evt.added.element.id, status)
+  }
+
+  return true
+}
 </script>
