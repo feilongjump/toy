@@ -72,7 +72,7 @@ const store = (params: any) => {
 }
 
 const update = (params: any) => {
-  new Article().patch(id, params).then(() => {
+  new Article().update(id, params).then(() => {
     ElMessage.success('修改值 + 1')
   })
 }
