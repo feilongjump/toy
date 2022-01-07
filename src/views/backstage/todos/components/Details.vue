@@ -42,7 +42,9 @@ onMounted(() => {
     after() {
       if (props.isEdit) {
         new Todo().show(id).then((response) => {
-          contentEditor.value.setValue(response.content.markdown)
+          if (response.content) {
+            contentEditor.value.setValue(response.content.markdown)
+          }
 
           details.value = response
         })
