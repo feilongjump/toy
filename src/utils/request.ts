@@ -29,7 +29,8 @@ class Request {
   protected requestConfig() {
     this.axiosRequestConfig = {
       baseURL: this.baseURL,
-      timeout: 10000
+      timeout: 10000,
+      withCredentials: true
     }
   }
 
